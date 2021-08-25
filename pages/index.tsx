@@ -72,16 +72,20 @@ export default function Home() {
           <Spinner />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 my-12 gap-10">
-            {data?.results.map((post) => (
-              <div
-                className="shadow p-3 rounded-lg flex flex-col space-y-2"
-                key={post.id}
-              >
-                <h2 className="text-lg font-medium">{post.title}</h2>
-                <p className="text-base">{post.body}</p>
-                <p className="text-sm text-gray-500">{post.status}</p>
-              </div>
-            ))}
+            {data?.results.length === 0 ? (
+              <p>There are no results that match your query</p>
+            ) : (
+              data?.results.map((post) => (
+                <div
+                  className="shadow p-3 rounded-lg flex flex-col space-y-2"
+                  key={post.id}
+                >
+                  <h2 className="text-lg font-medium">{post.title}</h2>
+                  <p className="text-base">{post.body}</p>
+                  <p className="text-sm text-gray-500">{post.status}</p>
+                </div>
+              ))
+            )}
           </div>
         )}
       </section>
