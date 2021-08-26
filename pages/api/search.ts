@@ -5,16 +5,19 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  
   const query = req.query.q;
-  
-  const results = await prisma.post.findMany({
-    where: {
-      body: {
-        search: `${query}`,
+  try {
+    const results = await prisma.post.findMany({
+      where: {
+        body: {
+          search: `${query}`,
+        },
       },
-    },
-  });
-
-  res.status(200).json({ results });
+    });
+    console.log(results);
+    res.status(200).json({ results });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ results: [], message: error });
+  }
 }
