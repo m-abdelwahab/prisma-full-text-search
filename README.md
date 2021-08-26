@@ -2,7 +2,7 @@
 
 This is a demo that shows how to do [Full-Text search using Prisma](https://www.prisma.io/docs/concepts/components/prisma-client/full-text-search).
 
-To set up this example locally, you first need to have a PostgreSQL database.
+To set up this example locally, you first need to have a PostgreSQL database. You can set one up on http://cloud.prisma.io/ using Heroku or have an instance run locally.
 
 
 ```bash
@@ -17,6 +17,3 @@ Stack:
 - TailwindCSS
 - react-query
 - react-hook-form
-
-TODO:
-- [ ] add seeding script 
